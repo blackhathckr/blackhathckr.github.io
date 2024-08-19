@@ -41,12 +41,33 @@ const slides = document.getElementById('carouselSlides');
 const totalSlides = slides.children.length;
 let currentSlide = 0;
 
-document.getElementById('nextSlide').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-});
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.getElementById('carouselSlides');
+    const slideCount = slides.children.length;
+    let currentIndex = 0;
+    const intervalTime = 3000; // 3 seconds
 
-document.getElementById('prevSlide').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    function goToSlide(index) {
+        const offset = -index * 100;
+        slides.style.transform = `translateX(${offset}%)`;
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slideCount;
+        goToSlide(nextIndex);
+    }
+
+    // Auto-slide functionality
+    setInterval(nextSlide, intervalTime);
+
+    // Navigation buttons
+    document.getElementById('prevSlide').addEventListener('click', function () {
+        const prevIndex = (currentIndex - 1 + slideCount) % slideCount;
+        goToSlide(prevIndex);
+    });
+
+    document.getElementById('nextSlide').addEventListener('click', function () {
+        nextSlide();
+    });
 });
