@@ -155,50 +155,51 @@
 
 
     <!-- Carousel Container -->
-<div class="relative overflow-hidden">
+    <div class="relative overflow-hidden">
+        <!-- Static Heading -->
+        <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-10 md:text-5xl lg:text-6xl carousel-heading">
+            <span class="block text-2xl md:text-4xl lg:text-6xl font-semibold text-white text-center">INTERIOR FITOUT</span>
+            <span class="block text-2xl md:text-4xl lg:text-3xl font-semibold text-white text-center">"ELEVATE YOUR SPACE, ELEVATE YOUR LIFE"</span>
+        </h1>
 
-    <!-- Static Heading -->
-    <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-10 md:text-5xl lg:text-6xl">
-        <span class="text-5xl md:text-4xl lg:text-8xl font-semibold text-white">
-            ELECTECH
-    </h1>
+        <!-- Slides -->
+        <div id="carouselSlides" class="flex transition-transform duration-500">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-[60vh] flex items-center justify-center relative">
+                <img src="assets/home/hero-banner.png" alt="Slide 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 2 -->
+            <div class="min-w-full h-[60vh] flex items-center justify-center relative">
+                <img src="assets/home/slide2.jpg" alt="Slide 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 3 -->
+            <div class="min-w-full h-[60vh] flex items-center justify-center relative">
+                <img src="assets/home/slide3.png" alt="Slide 3" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 4 -->
+            <div class="min-w-full h-[60vh] flex items-center justify-center relative">
+                <img src="assets/home/slide4.png" alt="Slide 4" class="w-full h-full object-cover">
+            </div>
+        </div>
 
-    <!-- Slides -->
-    <div id="carouselSlides" class="flex transition-transform duration-500">
-        <!-- Slide 1 -->
-        <div class="min-w-full h-[60vh] flex items-center justify-center relative">
-            <img src="assets/home/hero-banner.png" alt="Slide 1" class="w-full h-full object-cover">
-        </div>
-        <!-- Slide 2 -->
-        <div class="min-w-full h-[60vh] flex items-center justify-center relative">
-            <img src="assets/home/slide2.jpg" alt="Slide 2" class="w-full h-full object-cover">
-        </div>
-        <!-- Slide 3 -->
-        <div class="min-w-full h-[60vh] flex items-center justify-center relative">
-            <img src="assets/home/slide3.png" alt="Slide 3" class="w-full h-full object-cover">
-        </div>
-        <!-- Slide 4 -->
-        <div class="min-w-full h-[60vh] flex items-center justify-center relative">
-            <img src="assets/home/slide4.png" alt="Slide 4" class="w-full h-full object-cover">
-        </div>
+        <!-- Navigation Buttons -->
+        <button id="prevSlide"
+            class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full">
+            <!-- Left Arrow Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="nextSlide"
+            class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full">
+            <!-- Right Arrow Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
     </div>
-
-    <!-- Navigation Buttons -->
-    <button id="prevSlide"
-        class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full">
-        <!-- Left Arrow Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-    </button>
-    <button id="nextSlide"
-        class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full">
-        <!-- Right Arrow Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-    </button>
-</div>
 
 
 
