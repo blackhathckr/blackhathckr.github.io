@@ -26,9 +26,7 @@ export const AppRoutes = () => {
       <Route
         path="/products"
         element={
-          <PrivateRoute>
             <ProductsPage />
-          </PrivateRoute>
         }
       />
       <Route
