@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/ARdrobe/dev-sw.js?dev-sw', { scope: '/ARdrobe/', type: 'classic' })
