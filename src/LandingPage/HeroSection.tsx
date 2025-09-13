@@ -1,8 +1,57 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect } from "react";
 
 const HeroSection = () => {
+
+  const handleTryOn = (param: string) => {
+    const url = `https://cdn.camweara.com/${param}`;
+    console.log("Loading from : ", url);
+
+    const body = document.getElementsByTagName("body")[0];
+    const iframe = document.createElement("iframe");
+    body.prepend(iframe);
+
+    iframe.id = "iFrameID";
+    iframe.allow = "camera";
+    Object.assign(iframe.style, {
+      position: "fixed",
+      width: "100%",
+      height: "100%",
+      top: "0",
+      left: "0",
+      marginLeft: "0",
+      marginTop: "0",
+      zIndex: "9999",
+      border: "none"
+    });
+
+    iframe.setAttribute("src", url);
+    window.document.body.style.overflow = "hidden";
+  };
+
+  // Add event listener for iframe close message
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data === "closeIframe") {
+        document.getElementsByTagName("body")[0].style.overflow = "auto";
+        const iframe = document.getElementById("iFrameID");
+        if (iframe) {
+          iframe.setAttribute("src", "");
+          iframe.style.display = "none";
+          iframe.remove();
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
+  // The clothing try-on parameter
+  const clothTryonParam = "clothing_virtual_tryon/?skus=puff_jacket_pink_2,morroccan_shirt_1,black_jacket_2,green_hoodie2,redrum_shirt_1,skull_tshirt_1&company_name=demo_store&temp=253636";
+
   return (
     <div className="relative overflow-hidden">
       {/* Background gradient */}
@@ -24,11 +73,9 @@ const HeroSection = () => {
               Experience clothing like never before. See exactly how outfits look on you before buying with our revolutionary AR technology.
             </p>
             <div className="mt-10 flex items-center gap-x-6">
-              <Link to="/products">
-              <Button size="lg" className="px-8 py-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-                Try Now <ArrowRight className="ml-2 h-4 w-4" />
+              <Button onClick={() => handleTryOn(clothTryonParam)} size="lg" className="px-8 py-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+                Try AR Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              </Link>
               <Link to="/products">
               <Button variant="outline" size="lg" className="px-8 py-6">
                 Shop Collection
